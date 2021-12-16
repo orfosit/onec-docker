@@ -59,46 +59,46 @@ EDTLINK=$(curl -s -G \
     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 else
 
-CLIENTLINK=$(curl -s -G \
-    -b /tmp/cookies.txt \
-    --data-urlencode "nick=Platform83" \
-    --data-urlencode "ver=$ONEC_VERSION" \
-    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\client_${ONEC_VERSION//./_}.deb64.tar.gz" \
-    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
+# CLIENTLINK=$(curl -s -G \
+#     -b /tmp/cookies.txt \
+#     --data-urlencode "nick=Platform83" \
+#     --data-urlencode "ver=$ONEC_VERSION" \
+#     --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\client_${ONEC_VERSION//./_}.deb64.tar.gz" \
+#     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 
-CLIENT32LINK=$(curl -s -G \
-    -b /tmp/cookies.txt \
-    --data-urlencode "nick=Platform83" \
-    --data-urlencode "ver=$ONEC_VERSION" \
-    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\client_${ONEC_VERSION//./_}.deb32.tar.gz" \
-    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
+# CLIENT32LINK=$(curl -s -G \
+#     -b /tmp/cookies.txt \
+#     --data-urlencode "nick=Platform83" \
+#     --data-urlencode "ver=$ONEC_VERSION" \
+#     --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\client_${ONEC_VERSION//./_}.deb32.tar.gz" \
+#     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 
-THINCLIENTLINK=$(curl -s -G \
-    -b /tmp/cookies.txt \
-    --data-urlencode "nick=Platform83" \
-    --data-urlencode "ver=$ONEC_VERSION" \
-    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\thin.client_${ONEC_VERSION//./_}.deb64.tar.gz" \
-    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
+# THINCLIENTLINK=$(curl -s -G \
+#     -b /tmp/cookies.txt \
+#     --data-urlencode "nick=Platform83" \
+#     --data-urlencode "ver=$ONEC_VERSION" \
+#     --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\thin.client64_${ONEC_VERSION//./_}.deb64.tar.gz" \
+#     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 
-THINCLIENT32LINK=$(curl -s -G \
-    -b /tmp/cookies.txt \
-    --data-urlencode "nick=Platform83" \
-    --data-urlencode "ver=$ONEC_VERSION" \
-    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\thin.client_${ONEC_VERSION//./_}.deb32.tar.gz" \
-    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
+# THINCLIENT32LINK=$(curl -s -G \
+#     -b /tmp/cookies.txt \
+#     --data-urlencode "nick=Platform83" \
+#     --data-urlencode "ver=$ONEC_VERSION" \
+#     --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\thin.client32_${ONEC_VERSION//./_}.deb32.tar.gz" \
+#     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 
-SERVERLINK=$(curl -s -G \
-    -b /tmp/cookies.txt \
-    --data-urlencode "nick=Platform83" \
-    --data-urlencode "ver=$ONEC_VERSION" \
-    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\deb64_${ONEC_VERSION//./_}.tar.gz" \
-    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
+# SERVERLINK=$(curl -s -G \
+#     -b /tmp/cookies.txt \
+#     --data-urlencode "nick=Platform83" \
+#     --data-urlencode "ver=$ONEC_VERSION" \
+#     --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\deb64_${ONEC_VERSION//./_}.tar.gz" \
+#     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 
 SERVER32LINK=$(curl -s -G \
     -b /tmp/cookies.txt \
     --data-urlencode "nick=Platform83" \
     --data-urlencode "ver=$ONEC_VERSION" \
-    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\deb_${ONEC_VERSION//./_}.tar.gz" \
+    --data-urlencode "path=Platform\\${ONEC_VERSION//./_}\\server32_${ONEC_VERSION//./_}.tar.gz" \
     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив<)')
 fi
 
