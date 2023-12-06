@@ -94,5 +94,5 @@ RUN cd /opt/1cv8/x86_64/8.3.23.1912/ && ./ibsrv --db-path=/home/usr1cv8/test_bas
  
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 
-EXPOSE 1540 1541 1545 1560 1610
+EXPOSE 1540 1541 1545 1560 1610 8160
 CMD ["ragent"]
