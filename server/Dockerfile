@@ -86,5 +86,11 @@ COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
+VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
+VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
+VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
+
+COPY ./server/logcfg.xml /opt/1cv8/current/conf
+
 EXPOSE 1540 1541 1545 1560
 CMD ["ragent"]
