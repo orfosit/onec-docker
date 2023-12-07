@@ -87,13 +87,14 @@ RUN apt-get update \
   && apt install -y nano 
 
 RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
-  && --mount=type=bind,src=/snap/test_baseCD,target=/home/usr1cv8/test_baseCD \
-  && --moun=type=bind,src=/snap/cf_src,target=/home/usr1cv8/cf_src \
-  && --mount=type=bind,src=/snap/baseDT,target=/home/usr1cv8/baseDT
- 
+ # && --mount=type=bind,src=/snap,target=/home/usr1cv8/snap 
+   && --moun=type=bind,src=/snap/cf_src,target=/home/usr1cv8/cf_src 
+ # && --mount=type=bind,src=/snap/baseDT,target=/home/usr1cv8/baseDT
+
+COPY ./bases/1Cv8.1CD /home/usr1cv8/test_baseCD
+COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
-COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
