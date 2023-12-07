@@ -85,17 +85,17 @@ RUN apt-get update \
   && apt install -y nano 
 
 VOLUME /home/usr1cv8/.1cv8 /var/log/1C
-VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
-VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
-VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
+VOLUME /snap/test_baseCD /home/usr1cv8/test_baseCD
+VOLUME /snap/cf_src /home/usr1cv8/cf_src
+VOLUME /snap/baseDT /home/usr1cv8/baseDT
 
-RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
-  && cd /home/usr1cv8/test_baseCD \
-  && wget -O 1Cv8.1CD https://disk.yandex.ru/d/jXv3kdalJf47rQ  
+#RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
+# && cd /home/usr1cv8/test_baseCD \
+# && wget -O 1Cv8.1CD https://disk.yandex.ru/d/jXv3kdalJf47rQ  
   
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
-COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
+# COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
