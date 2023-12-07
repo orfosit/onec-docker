@@ -86,7 +86,7 @@ RUN apt-get update \
   && apt install -y htop \
   && apt install -y nano 
 
-RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
+RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data /home/usr1cv8/cf_src \
  # && --mount=type=bind,src=/snap,target=/home/usr1cv8/snap 
    && --moun=type=bind,src=/snap/cf_src,target=/home/usr1cv8/cf_src 
  # && --mount=type=bind,src=/snap/baseDT,target=/home/usr1cv8/baseDT
