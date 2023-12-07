@@ -86,10 +86,10 @@ RUN apt-get update \
   && apt install -y htop \
   && apt install -y nano 
 
-RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data /home/usr1cv8/cf_src \
- # && --mount=type=bind,src=/snap,target=/home/usr1cv8/snap 
-   && --moun=type=bind,src=/snap/cf_src,target=/home/usr1cv8/cf_src 
- # && --mount=type=bind,src=/snap/baseDT,target=/home/usr1cv8/baseDT
+RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data /home/usr1cv8/cf_src 
+RUN --mount=type=bind,src=/snap/cf_src,target=/home/usr1cv8/cf_src 
+# && --mount=type=bind,src=/snap/baseDT,target=/home/usr1cv8/baseDT
+# && --mount=type=bind,src=/snap,target=/home/usr1cv8/snap 
 
 COPY ./bases/1Cv8.1CD /home/usr1cv8/test_baseCD
 COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
