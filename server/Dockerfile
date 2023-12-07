@@ -77,6 +77,12 @@ RUN groupadd -r grp1cv8 --gid=$onec_gid \
   && mkdir -p /var/log/1C /home/usr1cv8/.1cv8/1C/1cv8/conf /opt/1cv8/current/conf \
   && chown -R usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8
 
+RUN apt-get update \
+  && apt install -y wget \
+  && apt install -y curl \
+  && apt install -y htop \
+  && apt install -y nano 
+
 VOLUME /home/usr1cv8/.1cv8 /var/log/1C
 VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
 VOLUME /snap/test_baseCD/ss-data /home/usr1cv8/test_baseCD/ss-data
