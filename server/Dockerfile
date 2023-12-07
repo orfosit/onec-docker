@@ -85,10 +85,13 @@ RUN apt-get update \
 
 VOLUME /home/usr1cv8/.1cv8 /var/log/1C
 VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
-VOLUME /snap/test_baseCD/ss-data /home/usr1cv8/test_baseCD/ss-data
 VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
 VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 
+RUN cd /home/usr1cv8/test_baseCD/ \
+  && wget https://disk.yandex.ru/d/jXv3kdalJf47rQ \
+  && mkdir ss-data 
+  
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
