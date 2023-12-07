@@ -90,8 +90,7 @@ VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
 VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
 VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 
-RUN cd /opt/1cv8/x86_64/8.3.23.1912/ && ./ibsrv --db-path=/home/usr1cv8/test_baseCD --data=/home/usr1cv8/test_baseCD/ss-data --name=autonomusdb --port=8160 --enable-direct-gate --direct-regport=1610 --http-address=0.0.0.0 --debug=http --debug-address=0.0.0.0 --daemon  --config=/home/usr1cv8/test_baseCD/publication.yml
- 
+COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 
 EXPOSE 1540 1541 1545 1560 1610 8160
