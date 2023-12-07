@@ -78,18 +78,19 @@ RUN groupadd -r grp1cv8 --gid=$onec_gid \
   && chown -R usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8
 
 VOLUME /home/usr1cv8/.1cv8 /var/log/1C
+VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
+VOLUME /snap/test_baseCD/ss-data /home/usr1cv8/test_baseCD/ss-data
+VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
+VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
+COPY ./server/test_baseCD/1Cv8.1CD /home/usr1cv8/test_baseCD/1Cv8.1CD
 
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
-
-VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
-VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
-VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 
