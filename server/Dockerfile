@@ -86,7 +86,6 @@ VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
-COPY ./server/test_baseCD/1Cv8.1CD /home/usr1cv8/test_baseCD/1Cv8.1CD
 
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
