@@ -90,6 +90,7 @@ VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
 VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 
 RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
+  && cd /home/usr1cv8/test_baseCD \
   && wget -O 1Cv8.1CD https://disk.yandex.ru/d/jXv3kdalJf47rQ  
   
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
