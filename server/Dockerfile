@@ -81,6 +81,7 @@ VOLUME /home/usr1cv8/.1cv8 /var/log/1C
 
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
+COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
@@ -90,7 +91,6 @@ VOLUME /snap/test_baseCD/ /home/usr1cv8/test_baseCD/
 VOLUME /snap/cf_src/ /home/usr1cv8/cf_src/
 VOLUME /snap/baseDT/ /home/usr1cv8/baseDT/
 
-COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 
 EXPOSE 1540 1541 1545 1560 1610 8160
