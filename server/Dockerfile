@@ -77,6 +77,8 @@ RUN groupadd -r grp1cv8 --gid=$onec_gid \
   && mkdir -p /var/log/1C /home/usr1cv8/.1cv8/1C/1cv8/conf /opt/1cv8/current/conf \
   && chown -R usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8
 
+VOLUME /home/usr1cv8/.1cv8 /var/log/1C
+
 # ВасильевВА, https://jira.i-neti.ru/browse/INAK1C-181
 RUN apt-get update \
   && apt install -y wget \
@@ -84,20 +86,16 @@ RUN apt-get update \
   && apt install -y htop \
   && apt install -y nano 
 
-VOLUME /home/usr1cv8/.1cv8 /var/log/1C
-VOLUME /snap/test_baseCD /home/usr1cv8/test_baseCD
-VOLUME /snap/cf_src /home/usr1cv8/cf_src
-VOLUME /snap/baseDT /home/usr1cv8/baseDT
-
-#RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
-# && cd /home/usr1cv8/test_baseCD \
-# && wget -O 1Cv8.1CD https://disk.yandex.ru/d/jXv3kdalJf47rQ  
-  
+RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data \
+  && --mount=type=bind,src=/snap/test_baseCD,target=/home/usr1cv8/test_baseCD \
+  && --moun=type=bind,src=/snap/cf_src,target=/home/usr1cv8/cf_src \
+  && --mount=type=bind,src=/snap/baseDT,target=/home/usr1cv8/baseDT
+ 
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
-# COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
-
+COPY ./server/publication.yaml /home/usr1cv8/test_baseCD/publication.yaml
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
