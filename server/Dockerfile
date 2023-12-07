@@ -103,4 +103,5 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 
 EXPOSE 1540 1541 1545 1560 1610 8160
-CMD ["ragent"]
+# CMD ["ragent"]
+CMD ["autonomus"]
