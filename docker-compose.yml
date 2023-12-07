@@ -12,6 +12,8 @@ services:
     volumes:
       - srv_data:/home/usr1cv8/.1cv8
       - srv_log:/var/log/1C
+      - /snap/cf_src:/home/usr1cv8/cf_src:rw
+      
     networks:
       - back_net
 
