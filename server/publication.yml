@@ -1,18 +1,20 @@
-# publication.yaml
+# publication.yml
 server:
   address: 0.0.0.0
   port: 8160
 database:
-  path: /home/usr1cv8/test_baseCD/
+  path: /home/usr1cv8/test_baseCD
 infobase:
   id: unique
   name: autonomusdb
   distribute-licenses: yes
   schedule-jobs: allow
 http:
-  - base: /
-    http-services:
-      service:
-        - name: AcademyHTTP
+  base: /
+  http-services:
+    publish-by-default: true 
+    publish-extensions-by-default: true
+    service:
+          name: AcademyHTTP
           root: query_eval
-          publish: true
+          publish: true          
