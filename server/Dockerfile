@@ -92,7 +92,7 @@ RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data /home/u
 # && --mount=type=bind,src=/snap,target=/home/usr1cv8/snap 
 
 COPY ./bases/1Cv8.1CD /home/usr1cv8/test_baseCD
-COPY ./server/publication.yml /home/usr1cv8/publication.yml
+COPY ./server/publication.yml /home/usr1cv8/test_baseCD/publication.yml
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
