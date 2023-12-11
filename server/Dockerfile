@@ -9,7 +9,7 @@ ENV downloads=downloads/platform83/${ONEC_VERSION}
 COPY ./scripts/download_og.sh /download_og.sh
 
 WORKDIR /tmp
-COPY ./onec-docker/distr ./${downloads}
+COPY ./distr ./${downloads}
 RUN rm ./${downloads}/.gitkeep \
   && rm -rf ${downloads}/thin.client*.tar.gz \
   && rm -rf ${downloads}/client*.tar.gz \
