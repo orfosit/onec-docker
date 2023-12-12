@@ -79,6 +79,9 @@ RUN groupadd -r grp1cv8 --gid=$onec_gid \
 
 VOLUME /home/usr1cv8/.1cv8 /var/log/1C
 
+COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
+COPY ./server/logcfg.xml /opt/1cv8/current/conf
+
 # ВасильевВА, https://jira.i-neti.ru/browse/INAK1C-181
 RUN apt-get update \
   && apt install -y wget \
@@ -93,15 +96,12 @@ RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data /home/u
 
 COPY ./bases/1Cv8.1CD /home/usr1cv8/test_baseCD/1Cv8.1CD
 COPY ./server/publication.yml /home/usr1cv8/test_baseCD/publication.yml
-COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
-COPY ./server/logcfg.xml /opt/1cv8/current/conf
+
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-COPY ./server/logcfg.xml /opt/1cv8/current/conf
-
 EXPOSE 1540 1541 1545 1560 1610 8160
-# CMD ["ragent"]
-CMD ["autonomus"]
+
+CMD ["autonomus"] # CMD ["ragent"]
