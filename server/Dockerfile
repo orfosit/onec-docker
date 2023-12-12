@@ -82,7 +82,7 @@ VOLUME /home/usr1cv8/.1cv8 /var/log/1C
 COPY ./server/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./server/logcfg.xml /opt/1cv8/current/conf
 
-# ВасильевВА, https://jira.i-neti.ru/browse/INAK1C-181
+# ВасильевВА, https://jira.i-neti.ru/browse/INAK1C-181 +++
 RUN apt-get update \
   && apt install -y wget \
   && apt install -y curl \
@@ -96,6 +96,7 @@ RUN mkdir -p /home/usr1cv8/test_baseCD /home/usr1cv8/test_baseCD/ss-data /home/u
 
 COPY ./bases/1Cv8.1CD /home/usr1cv8/test_baseCD/1Cv8.1CD
 COPY ./server/publication.yml /home/usr1cv8/test_baseCD/publication.yml
+# ВасильевВА, https://jira.i-neti.ru/browse/INAK1C-181 ---
 
 COPY ./server/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
